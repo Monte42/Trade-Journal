@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+tr a{
+  color: white;
+  text-decoration: none;
+}
+
+tr img{
+  background-color: #555;
+  height: 4vw;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.logout-btn:hover{
+  cursor: pointer;
+}
+
+.error{
+  padding: 2px 5px;
+  background-color: rgba(111, 111, 111, 0.5);
+  color: darkred;
+  border-radius: 5px;
+}
+
+.news-table{
+  height: 45vh;
+  border-radius: 0px 0px 15px 15px;
+}
+
+
+
+.flex-wrapper{
+  display: flex;
+}
+.flex-justify-around{
+  justify-content: space-around;
+}
+.flex-justify-between{
+  justify-content: space-between;
+}
+.flex-justify-evenly{
+  justify-content: space-evenly;
+}
+.flex-justify-center{
+  justify-content: center;
+}
+.flex-justify-end{
+  justify-content: end;
+}
+.flex-align-around{
+  align-items: space-around;
+}
+.flex-align-between{
+  align-items: space-between;
+}
+.flex-align-evenly{
+  align-items: space-evenly;
+}
+.flex-align-center{
+  align-items: center;
+}
+.flex-align-end{
+  align-items: end;
+}
+.flex-row{
+  flex-direction: row;
+}
+.flex-col{
+  flex-direction: column;
+}
+.flex-row-reverse{
+  flex-direction: row-reverse;
+}
+.flex-col-reverse{
+  flex-direction: column-reverse;
+}
+.flex-gap-5{
+  gap: 5px;
+}
+.flex-gap-10{
+  gap: 10px;
+}
+.flex-gap-20{
+  gap: 20px;
+}
+
+.overflow-auto{
+  display: block;
+  overflow: auto;
+}
+.height-40{
+  height: 40vh;
+}
+.height-50{
+  height: 50vh;
+}
