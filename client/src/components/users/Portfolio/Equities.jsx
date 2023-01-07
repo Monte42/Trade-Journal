@@ -13,7 +13,7 @@ const Equities = ({portfolioID,equities,setEquities}) => {
     },[portfolioID])
     return (
         <div className='col-10 col-sm-4 p-3'>
-            <h4>Equities <Link className='btn btn-sm btn-secondary' to={'/equities/new'}>New</Link></h4>
+            <h4>Equities</h4>
             <table>
                 <thead>
                     <tr>
@@ -33,7 +33,7 @@ const Equities = ({portfolioID,equities,setEquities}) => {
                                 {e.price_difference===0 ? <td>{e.price_difference}</td> :
                                 <PorL pnl={e.price_difference} />
                                 }
-                                
+                                <td><Link className='btn btn-secondary btn-sm' to={`/equities/${e.id}`}>Update</Link></td>
                             </tr>
                         ))
                     }

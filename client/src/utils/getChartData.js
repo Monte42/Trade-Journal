@@ -16,7 +16,7 @@ export const parseTickerChatData = (data) => {
 export const get_equity_value = (arr) => {
     let val = 0
     arr.forEach(element => {
-        val += element.last_updated_price
+        val += element.last_updated_price*element.quantity
     });
     return val
 }

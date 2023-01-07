@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import TraderNav from '../../components/general/TraderNav'
 import DeleteBtn from '../../components/general/DeleteBtn'
+import PorL from './PorL'
 const DetailsPurchase = () => {
     const { id } = useParams()
     const [purchase, setPurchase] = useState({})
@@ -46,12 +47,14 @@ const DetailsPurchase = () => {
             <div className='row'>
                 <div className='col-10 col-sm-6'>
                     <ul>
-                        <li>Price Per Share: ${purchase.share_buy_price}.00</li>
-                        <li>Total Purchase Price: ${purchase.total_buy_price}.00</li>
+                        <li>Price Per Share: ${purchase.share_buy_price}</li>
+                        <li>Total Purchase Price: ${purchase.total_buy_price}</li>
                         <li>Quantity: {purchase.quantity}</li>
                         <li>Sold: {purchase.is_sold? 'Yes' : 'No'}</li>
-                        <li>Profit Per Share: {purchase.share_sell_price?`$${purchase.share_sell_price-purchase.share_buy_price}.00`:`$0.00`}</li>
-                        <li>Total Purchase Profit: {purchase.total_sell_price?`$${purchase.total_sell_price-purchase.total_buy_price}.00`:`$0.00`}</li>
+                        <li>Sold Price Per Share: ${purchase.share_sell_price}</li>
+                        <li>Total Sold Price: $<PorL beatPrice={purchase.total_buy_price} pnl={purchase.total_sell_price} /></li>
+                        <li>Profit Per Share: {purchase.share_sell_price?<span>$<PorL beatPrice={0} pnl={purchase.share_sell_price-purchase.share_buy_price}/></span>:`$0`}</li>
+                        <li>Total Purchase Profit: {purchase.total_sell_price?<span>$<PorL beatPrice={0} pnl={purchase.total_sell_price-purchase.total_buy_price}/></span>:`$0`}</li>
                         <li>Purchase Enter Date: {new Date(purchase.created_at).toDateString()}</li>
                     </ul>
                 </div>

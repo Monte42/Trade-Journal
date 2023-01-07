@@ -35,6 +35,6 @@ def get_edit_delete_purchase_by_id(request,id,format=None):
 
 @api_view(['GET'])
 def get_purchases_by_portfolio_id(request,id,format=None):
-    purchases = Purchase.objects.all().filter(portfolio=id)
+    purchases = Purchase.objects.all().order_by('is_sold').filter(portfolio=id)
     serializer = PurchaseSerializer(purchases, many=True)
     return Response(serializer.data)

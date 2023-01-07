@@ -15,7 +15,7 @@ class Chart extends React.Component {
         <div>
             <VictoryPie
                 height={window.innerWidth*.15}
-                colorScale={['#8ecae6','#219ebc','#023047','#ffb703','#fb8500']}
+                colorScale={['#001219','#005f73','#0a9396','#94d2bd','#e9d8a6','#ee9b00','#219ebc','#ca6702','#bb3e03','#ae2012','#9b2226']}
                 innerRadius={10}
                 style={{ labels: {fontSize: 9}}}
                 data={diversityData}

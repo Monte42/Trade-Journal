@@ -52,7 +52,16 @@ const PurchaseForm = ({submitProp,btnTitle,id}) => {
             <label className='form-lable'>Sector
                 <select className='form-select' value={sector} onChange={e=>setSector(e.target.value)}>
                     <option value="Energy">Energy</option>
-                    <option value="Other">Other</option>
+                    <option value="Materials">Materials</option>
+                    <option value="Industrials">Industrials</option>
+                    <option value="Consumer Discretionary">Consumer Discretionary</option>
+                    <option value="Consumer Staples">Consumer Staples</option>
+                    <option value="Health Care">Health Care</option>
+                    <option value="Financials">Financials</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Telecommunication Services">Telecommunication Services</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Real Estate">Real Estate</option>
                 </select>
             </label>
             }

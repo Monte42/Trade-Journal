@@ -9,8 +9,8 @@ import UserPortfolio from './views/users/UserPortfolio';
 import TickerDetail from './views/ticker/TickerDetail';
 import NewPurchase from './views/purchases/NewPurchase';
 import EditPurchase from './views/purchases/EditPurchase';
-import NewEquitity from './views/equities/NewEquitity';
 import DetailsPurchase from './views/purchases/DetailsPurchase';
+import EditEquity from './views/equities/EditEquity';
 
 export const JournalContext = React.createContext()
 
@@ -45,6 +45,7 @@ function App() {
               <Route element={<DetailsPurchase />} path={'/purchases/:id'} />
               <Route element={<NewPurchase />} path={'/purchases/:id/new'} />
               <Route element={<EditPurchase />} path={'/purchases/:portID/:purchID/edit'} />
+              <Route element={<EditEquity />} path={'/equities/:id'} />
             </Route>
           </Routes>
         </BrowserRouter>
