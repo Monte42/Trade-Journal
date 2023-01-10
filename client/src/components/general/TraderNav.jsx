@@ -12,7 +12,7 @@ const TraderNav = ({message}) => {
     }
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{backgroundColor:'#eee'}}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to={"/"}>Trade Journal</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@ const TraderNav = ({message}) => {
                                 <Link className="nav-link" aria-current="page" to={"/details"}>Look Up A Company</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" aria-current="page" to={""}>page 2</Link>
+                                <Link className="nav-link" aria-current="page" to={""} disabled>Chat Lobby(CommingSoon)</Link>
                             </li>
                             
                         </ul>
@@ -54,7 +54,7 @@ const TraderNav = ({message}) => {
             </nav>
             <div className='flex-wrapper flex-justify-between px-5 py-4 bg-dark text-light'>
                 <h2>{message}</h2>
-                <h3>{time.getMonth()+1}/{time.getDate()}/{time.getFullYear()} {time.getHours() % 12 || 12}:{time.getMinutes()<10?'0'+time.getMinutes():time.getMinutes() }</h3>
+                <h3>{time.toLocaleString()}</h3>
             </div>
         </>
     )

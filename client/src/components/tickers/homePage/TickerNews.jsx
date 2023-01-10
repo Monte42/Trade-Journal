@@ -19,7 +19,7 @@ const TickerNews = () => {
 
     return (
         <div>
-            <h4>{ticker} News</h4>
+            <h4 className='header-style'>{ticker} News</h4>
             <TickerForm ticker={ticker} setTicker={setTicker} submitProp={fetchData} />
             <table className='table table-striped table-dark table-hover overflow-auto news-table'>
                 <tbody>

@@ -25,16 +25,23 @@ export const get_pnl = (arr) =>{
     let p = 0
     let l = 0
     arr.forEach(el =>{
-        el.profit_loss>0 ? p+=el.profit_loss : l-=el.profit_loss
+        el.profit_loss>0 ? p+=parseFloat(el.profit_loss) : l-=parseFloat(el.profit_loss)
     })
     return [{x:'Loss',y:l},{x:'Profit',y:p}]
 }
 
 export const getDiversity = (arr,usersCurrentBuyingPower) =>{
-    let chartData = [{x:'Cash',y:usersCurrentBuyingPower}]
+    let chartData = [{x:'Cash',y:parseFloat(usersCurrentBuyingPower)}]
+    let d = {}
     for (let data in arr){
-        let dataPoint = {x:arr[data].sector,y:arr[data].last_updated_price*arr[data].quantity}
-        chartData.push(dataPoint);
+        const dictKeys = Object.keys(d)
+        let s = arr[data].sector
+        dictKeys.includes(s) ?
+        d[s] = d[s]+(arr[data].last_updated_price*arr[data].quantity) :
+        d[s] = arr[data].last_updated_price*arr[data].quantity
+    }
+    for (let ds in d){
+        chartData.push({x: ds, y:d[ds]});
     }
     return chartData
 }

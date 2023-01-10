@@ -14,11 +14,11 @@ class Chart extends React.Component {
         return (
         <div>
             <VictoryPie
-                height={window.innerWidth*.15}
+                width={window.innerWidth*.45}
                 colorScale={['red','green']}
                 startAngle={90}
                 endAngle={-90}
-                style={{ labels: {fontSize: 9}}}
+                style={{ labels: {fontSize: 16, fill:'#fff'}}}
                 data={pnlData}
             />
         </div>

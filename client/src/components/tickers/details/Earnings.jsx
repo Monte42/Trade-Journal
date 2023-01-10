@@ -13,8 +13,15 @@ const Earnings = ({ticker}) => {
 
     return (
         <div>
-            <h3>Earnings {ticker}</h3>
-            <table className='table table-dark table-striped table-hover'>
+            <h3 className='header-style ms-2'>Earnings {ticker}</h3>
+            <table
+                className='table table-dark table-striped table-hover'
+                style={{
+                    width:'90%',
+                    margin:'0 auto',
+                    boxShadow:'5px 5px 5px #333'
+                }}
+            >
                 <thead>
                     <tr>
                         <th>Fiscal End Date</th>

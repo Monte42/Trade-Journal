@@ -6,6 +6,8 @@ import axios from 'axios'
 import PurchaseForm from '../../components/purchases/PurchaseForm'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import Footer from '../../components/general/Footer'
+import TraderNav from '../../components/general/TraderNav'
 
 const EditPurchase = () => {
     const {portID,purchID} = useParams()
@@ -49,12 +51,14 @@ const EditPurchase = () => {
 
     return (
         <div>
-            <h2>Update Purchase</h2>
+            <TraderNav message={user.name}/>
+            <h2 className='header-style text-center'>Update Purchase</h2>
             <PurchaseForm 
                 submitProp={updatePurchase}
                 btnTitle={'Update'}
                 id={purchID}
             />
+            <Footer bottomOut={'bottom-out'} />
         </div>
     )
 }

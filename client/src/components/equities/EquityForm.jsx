@@ -38,7 +38,7 @@ const EquityForm = ({submitProp,btnTitle,helpText}) => {
                 <input className='form-control' type="text" value={sector} onChange={e=>setSector(e.target.value)} />
             </label>
             <label className='form-label'>Buy Price
-                <input className='form-control' type="number" value={buyPrice} onChange={e=>setBuyPrice(e.target.value)} />
+                <input className='form-control' type="number" step="0.01" value={buyPrice} onChange={e=>setBuyPrice(e.target.value)} />
             </label>
             <label className='form-label'>Quatity
                 <input className='form-control' type="number" value={quantity} onChange={e=>setQuantity(e.target.value)} />

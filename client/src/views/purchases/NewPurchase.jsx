@@ -4,6 +4,7 @@ import { JournalContext } from '../../App'
 import axios from 'axios'
 import TraderNav from '../../components/general/TraderNav'
 import PurchaseForm from '../../components/purchases/PurchaseForm'
+import Footer from '../../components/general/Footer'
 
 const NewPurchase = () => {
     const {id} = useParams()
@@ -37,7 +38,6 @@ const NewPurchase = () => {
         let p = portfolio
         p.balance = p.balance-price
         if (p.balance>0){
-            console.log(p);
             axios.put(`http://localhost:8000/api/portfolios/${id}`, p)
                 .then(()=> navigate(`/${user.username}/portfolio`))
                 .catch(err=>console.log(err))
@@ -72,9 +72,12 @@ const NewPurchase = () => {
 
     return (
         <div>
-            <TraderNav />
-            <h2>Add a new Transaction</h2>
+            <TraderNav message={user.name} />
+            <h2 className='header-style text-center'>
+                Add a new Transaction
+            </h2>
             <PurchaseForm submitProp={createNewPurchase} btnTitle={'Create'}/>
+            <Footer bottomOut={'bottom-out'}/>
         </div>
     )
 }

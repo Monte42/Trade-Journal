@@ -20,20 +20,23 @@ const TickerStats = () => {
     
 
     return (
-        <div className='px-4 py-4'>
-            <h4>{ticker} Quick Stats</h4>
+        <div className='py-4'>
+            <h4 className='header-style'>{ticker} Quick Stats</h4>
             <TickerForm ticker={ticker} setTicker={setTicker} submitProp={fetchData} />
             <div>
-                <ul className='list-group list-group-flush list-hover'>
-                        <li className='list-group-item'>Recent Open: {data['02. open']}</li>
-                        <li className='list-group-item'>Recent High: {data['03. high']}</li>
-                        <li className='list-group-item'>Recent Low: {data['04. low']}</li>
-                        <li className='list-group-item'>Last Price: {data['05. price']}</li>
-                        <li className='list-group-item'>Recent Volume: {data['06. volume']}</li>
-                        <li className='list-group-item'>Last Day Traded: {data['07. latest trading day']}</li>
-                        <li className='list-group-item'>Previous Close: {data['08. previous close']}</li>
-                        <li className='list-group-item'>Latest Daily Change: {data['09. change']}</li>
-                        <li className='list-group-item'>Latest Change Percent: {data['10. change percent']}</li>
+                <ul 
+                    className='list-group list-group-flush list-hover'
+                    style={{borderRadius:'0 0 5px 5px'}}
+                >
+                    <li className='list-group-item list-group-item-dark'><strong>Recent Open:</strong> ${parseFloat(data['02. open']).toFixed(2)}</li>
+                    <li className='list-group-item list-group-item-dark'><strong>Recent High:</strong> ${parseFloat(data['03. high']).toFixed(2)}</li>
+                    <li className='list-group-item list-group-item-dark'><strong>Recent Low:</strong> ${parseFloat(data['04. low']).toFixed(2)}</li>
+                    <li className='list-group-item list-group-item-dark'><strong>Last Price:</strong> ${parseFloat(data['05. price']).toFixed(2)}</li>
+                    <li className='list-group-item list-group-item-dark'><strong>Recent Volume:</strong> {data['06. volume']}</li>
+                    <li className='list-group-item list-group-item-dark'><strong>Last Day Traded:</strong> {new Date(data['07. latest trading day']).toDateString()}</li>
+                    <li className='list-group-item list-group-item-dark'><strong>Previous Close:</strong> ${parseFloat(data['08. previous close']).toFixed(2)}</li>
+                    <li className='list-group-item list-group-item-dark'><strong>Latest Daily Change:</strong> ${data['09. change']}</li>
+                    <li className='list-group-item list-group-item-dark'><strong>Latest Change Percent:</strong> {data['10. change percent']}</li>
                 </ul>
             </div>
         </div>

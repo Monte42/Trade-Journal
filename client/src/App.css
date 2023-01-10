@@ -2,6 +2,9 @@
   padding: 0;
   margin: 0;
 }
+body{
+  background-color: #555;
+}
 
 tr a{
   color: white;
@@ -15,13 +18,47 @@ tr img{
   border-radius: 5px;
 }
 
+form{
+  color: #fff;
+}
+
+footer{
+  text-align: center;
+  background-color: #444;
+  padding: 5px;
+  color: #fff;
+  margin-top: 20px;
+}
+footer * {margin: 0;}
+.bottom-out{
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+}
+
+.header-style{
+  color:#fff;
+  padding:5px;
+  text-shadow:3px 3px 5px black;
+}
+
+.thought{
+  background-color: #888;
+  margin: 5px 0;
+  padding: 4px;
+  width: fit-content;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #444;
+}
+
 .logout-btn:hover{
   cursor: pointer;
 }
 
 .error{
   padding: 2px 5px;
-  background-color: rgba(111, 111, 111, 0.5);
+  background-color: rgba(199, 199, 199, 0.5);
+  box-shadow: 4px 4px 5px #444;
   color: darkred;
   border-radius: 5px;
 }
@@ -29,6 +66,13 @@ tr img{
 .news-table{
   height: 45vh;
   border-radius: 0px 0px 15px 15px;
+}
+
+.purchaseCard{
+  background-color: rgba(199, 199, 199, 0.5);
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px #333;
+  color: #eee;
 }
 
 
@@ -90,7 +134,7 @@ tr img{
 
 .overflow-auto{
   display: block;
-  overflow: auto;
+  overflow-y: scroll;
 }
 .height-40{
   height: 40vh;

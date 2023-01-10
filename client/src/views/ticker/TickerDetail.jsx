@@ -6,6 +6,7 @@ import BalanceSheet from '../../components/tickers/details/BalanceSheet'
 import CashFlow from '../../components/tickers/details/CashFlow'
 import Earnings from '../../components/tickers/details/Earnings'
 import TickerSearchForm from '../../components/tickers/details/TickerSearchForm'
+import Footer from '../../components/general/Footer.jsx'
 
 const TickerDetail = () => {
     const [ticker,setTicker] = useState('TSLA')
@@ -13,15 +14,16 @@ const TickerDetail = () => {
 
     return (
         <div>
-            <TraderNav />
+            <TraderNav message={ticker}/>
             <TickerSearchForm ticker={ticker} setTicker={setTicker} setChartURL={setChartURL}/>
-            <div className='ps-4'>
+            <div className='px-4'>
                 <TickerChart chartURL={chartURL} ticker={ticker}/>
             </div>
             <IncomeStatement ticker={ticker} />
             <BalanceSheet ticker={ticker} />
             <CashFlow ticker={ticker} />
             <Earnings ticker={ticker} />
+            <Footer />
         </div>
     )
 }

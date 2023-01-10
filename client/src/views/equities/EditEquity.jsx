@@ -1,10 +1,10 @@
-import axios from 'axios'
-import { useEffect } from 'react'
-import { useContext } from 'react'
-import { useState } from 'react'
+import { useState,useEffect,useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { JournalContext } from '../../App'
+import Footer from '../../components/general/Footer'
 import TraderNav from '../../components/general/TraderNav'
+import axios from 'axios'
+
 const EditEquity = () => {
     const [user] = useContext(JournalContext)
     const { id } = useParams()
@@ -31,7 +31,7 @@ const EditEquity = () => {
             buy_price: equity.buy_price,
             quantity: equity.quantity,
             last_updated_price: newValue,
-            price_difference: newValue-equity.buy_price
+            price_difference: (newValue-equity.buy_price).toFixed(2)
         })
             .then(()=>navigate(`/${user.username}/portfolio`))
             .catch(err=>console.log(err))
@@ -40,13 +40,22 @@ const EditEquity = () => {
     return (
         <div>
             <TraderNav message={equity.symbol}/>
-            <h2>Update Current Value</h2>
-            <form onSubmit={updateEquity}>
-                <label>$
-                    <input type="number" value={newValue} onChange={e=>setNewValue(e.target.value)} />
+            <h2 className='header-style text-center'>
+                Update Current Value
+            </h2>
+            <form onSubmit={updateEquity}
+                style={{
+                    margin:'0 auto',
+                    width:'fit-content',
+                    fontSize:'1.5em',
+                    textShadow:'3px 3px 5px black'
+            }}>
+                <label className='form-lable'>$
+                    <input className='form-control-lg' type="number" value={newValue} onChange={e=>setNewValue(e.target.value)} />
                 </label>
-                <button className='btn btn-secondary btn-sm'>Update</button>
+                <button className='btn btn-secondary btn-lg'>Update</button>
             </form>
+            <Footer bottomOut={'bottom-out'} />
         </div>
     )
 }

@@ -3,6 +3,9 @@ import { JournalContext } from '../App'
 import TraderNav from '../components/general/TraderNav'
 import TickerStats from '../components/tickers/homePage/TickerStats'
 import TickerNews from '../components/tickers/homePage/TickerNews'
+import HomeChat from '../components/chat/HomeChat'
+import HomePortfolio from '../components/users/homePage/HomePortfolio'
+import Footer from '../components/general/Footer'
 
 const Home = () => {
     const [user] = useContext(JournalContext)
@@ -12,19 +15,16 @@ const Home = () => {
         <div>
             <TraderNav message={`Welcome, ${user.name}`} />
             <div className='row d-flex justify-content-center py-3 '>
-                <div className='col-md-10 col-lg-6 border flex-wrapper flex-col flex-align-center' style={{height:"75vh"}}>
+                <div className='col-md-10 col-lg-6 flex-wrapper flex-col flex-align-center' style={{height:"75vh"}}>
                     <TickerStats />
-                    <section className='border' style={{height:'20%', width:"95%"}}>
-                        chat lobby
-                    </section>
+                    <HomeChat />
                 </div>
-                <div className='col-md-10 col-lg-6 border flex-wrapper flex-col flex-align-center' style={{height:"75vh"}}>
-                    <section className='border' style={{height:'40%', width:"95%"}}>
-                        Profile Data
-                    </section>
+                <div className='col-md-10 col-lg-6 flex-wrapper flex-col flex-align-center' style={{height:"75vh"}}>
+                    <HomePortfolio />
                     <TickerNews />
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

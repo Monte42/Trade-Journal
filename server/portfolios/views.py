@@ -38,6 +38,9 @@ def get_edit_delete_portfolio_by_id(request,id,format=None):
 
 @api_view(['GET'])
 def get_portfolio_buy_user_id(request,id,format=None):
-    portfolio = Portfolio.objects.get(user=id)
+    try:
+        portfolio = Portfolio.objects.get(user=id)
+    except Portfolio.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
     serializer = PortfolioSerializer(portfolio)
     return Response(serializer.data)

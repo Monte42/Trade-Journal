@@ -4,6 +4,7 @@ import axios from 'axios'
 import { JournalContext } from '../../App'
 import TraderNav from '../../components/general/TraderNav'
 import NameEmail from '../../components/user_auth/form_blocks/NameEmail'
+import Footer from '../../components/general/Footer'
 
 
 const EditUser = () => {
@@ -51,9 +52,12 @@ const EditUser = () => {
 
     return (
         <div>
-            <TraderNav />
+            <TraderNav message={user.name}/>
+            <h2 className='header-style text-center'>
+                Edit your information
+            </h2>
             <div className='row text-center'>
-                <form className='col-sm-8 col-md-6 col-lg-4' onSubmit={submitHandler}>
+                <form style={{margin:'0 auto'}} className='col-sm-8 col-md-6 col-lg-4' onSubmit={submitHandler}>
                     {errors.message && <p className='error'>{errors.message}</p>}
                     <NameEmail 
                         firstName={firstName} setFirstName={setFirstName}
@@ -67,9 +71,10 @@ const EditUser = () => {
                         </label>
                     </p>
                     {errors.username && <p className='error'>{errors.username}</p>}
-                    <button className='btn btn-primary'>Update</button>
+                    <button className='btn btn-secondary'>Update</button>
                 </form>
             </div>
+            <Footer bottomOut={'bottom-out'} />
         </div>
     )
 }

@@ -18,22 +18,34 @@ const TickerSearchForm = ({ticker,setTicker,setChartURL}) => {
     }
 
     return (
-        <form onSubmit={submitHandler}>
-                <label>Symbol <input type="text" value={newTicker} onChange={e=>setNewTicker(e.target.value.toUpperCase())}/></label>
-                <label>From <input type="date" value={startDate} onChange={e=>setStartDate(e.target.value)} /></label>
-                <label>To <input type="date" value={endDate} onChange={e=>setEndDate(e.target.value)} /></label>
-                <label>Intervals
-                    <select value={intervalLength} onChange={e=>setIntervalLength(e.target.value)}>
+        <form 
+            onSubmit={submitHandler}
+            style={{
+                margin:'0 auto',
+                width:'fit-content',
+                padding:'10px',
+            }}
+        >
+                <label className='ms-2'>Symbol&nbsp;
+                    <input className='form-control-sm' type="text" value={newTicker} onChange={e=>setNewTicker(e.target.value.toUpperCase())}/>
+                </label>
+                <label className='ms-2'>From &nbsp;
+                    <input className='form-control-sm' type="date" value={startDate} onChange={e=>setStartDate(e.target.value)} />
+                </label>
+                <label className='ms-2'>To &nbsp;
+                    <input className='form-control-sm' type="date" value={endDate} onChange={e=>setEndDate(e.target.value)} />
+                </label>
+                <label className='ms-2'>Intervals&nbsp;
+                    <select className='form-select-sm' value={intervalLength} onChange={e=>setIntervalLength(e.target.value)}>
                         <option value='minute'>Minunte</option>
                         <option value='hour'>Hour</option>
                         <option value='day'>Day</option>
                         <option value='week'>Week</option>
                         <option value='month'>Month</option>
                     </select>
-                    <input type="number" style={{width:"50px"}} value={intervalMulti} onChange={e=>setIntervalMulti(e.target.value)}/>
-                </label>
-                <label></label>
-                <button>Search</button>
+                    <input className='form-control-sm' type="number" style={{width:"80px"}} value={intervalMulti} onChange={e=>setIntervalMulti(e.target.value)}/>
+                </label>&nbsp;&nbsp;
+                <button className='btn btn-secondary btn-sm'>Search</button>
             </form>
     )
 }

@@ -22,10 +22,10 @@ class Equity(models.Model):
     purchase = models.ForeignKey(Purchase, on_delete=models.CASCADE)
     symbol = models.CharField(max_length=10)
     sector = models.CharField(max_length=50,choices=SECTORS,default='Energy')
-    buy_price = models.IntegerField()
+    buy_price = models.DecimalField(max_digits=12, decimal_places=2)
     quantity = models.IntegerField()
-    last_updated_price = models.IntegerField()
-    price_difference = models.IntegerField()
+    last_updated_price = models.DecimalField(max_digits=12, decimal_places=2)
+    price_difference = models.DecimalField(max_digits=12, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

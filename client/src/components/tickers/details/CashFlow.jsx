@@ -12,25 +12,25 @@ const CashFlow = ({ticker}) => {
     },[ticker])
 
     return (
-        <div>
-            <h3>Cash Flow {ticker}</h3>
-            <h4>Fiscal Ending Date: {cashFlowData.fiscalDateEnding}</h4>
-            <div className='row'>
+        <div style={{backgroundColor:'#777', padding:'10px 0 30px'}}>
+            <h3 className='header-style ms-2'>Cash Flow {ticker}</h3>
+            <h4 className='header-style ms-2'>Fiscal Ending Date: {cashFlowData.fiscalDateEnding}</h4>
+            <div className='row purchaseCard' style={{width:'90%',margin:'0 auto'}}>
                 <div className='col-10 col-sm-6'>
-                    <p>Capital Expenditures: ${cashFlowData.capitalExpenditures}</p>
-                    <p>Cash Flow from financing: ${cashFlowData.cashflowFromFinancing}</p>
-                    <p>Cash Flow from Investments: ${cashFlowData.cashflowFromInvestment}</p>
-                    <p>Divdend Payouts: {cashFlowData.dividendPayout}</p>
-                    <p>Net Income: ${cashFlowData.netIncome}</p>
-                    <p>Operating Cash Flow: ${cashFlowData.operatingCashflow}</p>
-                    <p>Profit/Loss: ${cashFlowData.profitLoss}</p>
+                    <p><span className='header-style'>Capital Expenditures:</span> ${cashFlowData.capitalExpenditures}</p>
+                    <p><span className='header-style'>Cash Flow from financing:</span> ${cashFlowData.cashflowFromFinancing}</p>
+                    <p><span className='header-style'>Cash Flow from Investments:</span> ${cashFlowData.cashflowFromInvestment}</p>
+                    <p><span className='header-style'>Divdend Payouts:</span> {cashFlowData.dividendPayout}</p>
+                    <p><span className='header-style'>Net Income:</span> ${cashFlowData.netIncome}</p>
+                    <p><span className='header-style'>Operating Cash Flow:</span> ${cashFlowData.operatingCashflow}</p>
+                    <p><span className='header-style'>Profit/Loss:</span> ${cashFlowData.profitLoss}</p>
                 </div>
                 <div className='col-10 col-sm-6'>
-                    <p>Change in Cash & Cash Equivalent: ${cashFlowData.changeInCashAndCashEquivalents}</p>
-                    <p>Change in inventory: ${cashFlowData.changeInInventory}</p>
-                    <p>Change in Operation Assets: ${cashFlowData.changeInOperatingAssets}</p>
-                    <p>Change in Operation Liabilities: ${cashFlowData.changeInOperatingLiabilities}</p>
-                    <p>Change in Receivables: ${cashFlowData.changeInReceivables}</p>
+                    <p><span className='header-style'>Change in Cash & Cash Equivalent:</span> ${cashFlowData.changeInCashAndCashEquivalents}</p>
+                    <p><span className='header-style'>Change in inventory:</span> ${cashFlowData.changeInInventory}</p>
+                    <p><span className='header-style'>Change in Operation Assets:</span> ${cashFlowData.changeInOperatingAssets}</p>
+                    <p><span className='header-style'>Change in Operation Liabilities:</span> ${cashFlowData.changeInOperatingLiabilities}</p>
+                    <p><span className='header-style'>Change in Receivables:</span> ${cashFlowData.changeInReceivables}</p>
                 </div>
             </div>
         </div>

@@ -12,21 +12,21 @@ const IncomeStatement = ({ticker}) => {
     },[ticker])
 
     return (
-        <div>
-            <h3>Income Statement {ticker}</h3>
-            <h4>Fiscal Ending Date: {incomeData.fiscalDateEnding}</h4>
-            <div className='row'>
+        <div style={{backgroundColor:'#777', padding:'10px 0 30px'}}>
+            <h3 className='header-style ms-2'>Income Statement {ticker}</h3>
+            <h4 className='header-style ms-2'>Fiscal Ending Date: {incomeData.fiscalDateEnding}</h4>
+            <div className='row purchaseCard' style={{width:'90%', margin:'0 auto'}}>
                 <div className='col-10 col-sm-6'>
-                    <p>Gross Profit: {incomeData.grossProfit}</p>
-                    <p>Net Income: {incomeData.netIncome}</p>
-                    <p>Pre Tax Income: {incomeData.incomeBeforeTax}</p>
-                    <p>Income Tax Expense: {incomeData.incomeTaxExpense}</p>
+                    <p><span className='header-style'>Gross Profit:</span> ${incomeData.grossProfit}</p>
+                    <p><span className='header-style'>Net Income:</span> ${incomeData.netIncome}</p>
+                    <p><span className='header-style'>Pre Tax Income:</span> ${incomeData.incomeBeforeTax}</p>
+                    <p><span className='header-style'>Income Tax Expense:</span> ${incomeData.incomeTaxExpense}</p>
                 </div>
                 <div className='col-10 col-sm-6'>
-                    <p>Cost of Production: {incomeData.costofGoodsAndServicesSold}</p>
-                    <p>Operation Expense: {incomeData.operatingExpenses}</p>
-                    <p>Operation Income: {incomeData.operatingIncome}</p>
-                    <p>Total Revenue: {incomeData.totalRevenue}</p>
+                    <p><span className='header-style'>Cost of Production:</span> ${incomeData.costofGoodsAndServicesSold}</p>
+                    <p><span className='header-style'>Operation Expense:</span> ${incomeData.operatingExpenses}</p>
+                    <p><span className='header-style'>Operation Income:</span> ${incomeData.operatingIncome}</p>
+                    <p><span className='header-style'>Total Revenue:</span> ${incomeData.totalRevenue}</p>
                 </div>
             </div>
         </div>

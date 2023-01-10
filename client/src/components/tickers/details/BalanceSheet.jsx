@@ -13,26 +13,26 @@ const BalanceSheet = ({ticker}) => {
     },[ticker])
 
     return (
-        <div>
-            <h3>BalanceSheet {ticker}</h3>
-            <h4>Fiscal Ending Date: {sheetData.fiscalDateEnding}</h4>
-            <div className='row'>
+        <div style={{padding:'10px 0 30px'}}>
+            <h3 className='header-style ms-2'>BalanceSheet {ticker}</h3>
+            <h4 className='header-style ms-2'>Fiscal Ending Date: {sheetData.fiscalDateEnding}</h4>
+            <div className='row purchaseCard' style={{width:'90%', margin:'0 auto'}}>
                 <div className='col-10 col-sm-6'>
-                    <p>Cash & Cash Equivalent: ${sheetData.cashAndCashEquivalentsAtCarryingValue}</p>
-                    <p>Short Term Investments: ${sheetData.cashAndShortTermInvestments}</p>
-                    <p>Shares Outstanding: {sheetData.commonStockSharesOutstanding}</p>
-                    <p>Current Debt: ${sheetData.currentDebt}</p>
-                    <p>Long Term Debt: ${sheetData.longTermDebt}</p>
-                    <p>Current Inventory: ${sheetData.inventory}</p>
-                    <p>Investments: ${sheetData.investments}</p>
+                    <p><span className='header-style'>Cash & Cash Equivalent:</span> ${sheetData.cashAndCashEquivalentsAtCarryingValue}</p>
+                    <p><span className='header-style'>Short Term Investments:</span> ${sheetData.cashAndShortTermInvestments}</p>
+                    <p><span className='header-style'>Shares Outstanding:</span> {sheetData.commonStockSharesOutstanding}</p>
+                    <p><span className='header-style'>Current Debt:</span> ${sheetData.currentDebt}</p>
+                    <p><span className='header-style'>Long Term Debt:</span> ${sheetData.longTermDebt}</p>
+                    <p><span className='header-style'>Current Inventory:</span> ${sheetData.inventory}</p>
+                    <p><span className='header-style'>Investments:</span> ${sheetData.investments}</p>
                 </div>
                 <div className='col-10 col-sm-6'>
-                    <p>Other Current Assets: ${sheetData.otherCurrentAssets}</p>
-                    <p>Liquidable Assets: ${sheetData.propertyPlantEquipment}</p>
-                    <p>Other Current Liabilities: ${sheetData.otherCurrentLiabilities}</p>
-                    <p>Total Current Assets: ${sheetData.totalCurrentAssets}</p>
-                    <p>Retained Earnings: ${sheetData.retainedEarnings}</p>
-                    <p>Share Holder Equity: ${sheetData.totalShareholderEquity}</p>
+                    <p><span className='header-style'>Other Current Assets:</span> ${sheetData.otherCurrentAssets}</p>
+                    <p><span className='header-style'>Liquidable Assets:</span> ${sheetData.propertyPlantEquipment}</p>
+                    <p><span className='header-style'>Other Current Liabilities</span>: ${sheetData.otherCurrentLiabilities}</p>
+                    <p><span className='header-style'>Total Current Assets:</span> ${sheetData.totalCurrentAssets}</p>
+                    <p><span className='header-style'>Retained Earnings:</span> ${sheetData.retainedEarnings}</p>
+                    <p><span className='header-style'>Share Holder Equity:</span> ${sheetData.totalShareholderEquity}</p>
                 </div>
             </div>
         </div>

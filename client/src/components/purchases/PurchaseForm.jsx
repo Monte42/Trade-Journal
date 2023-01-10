@@ -37,7 +37,7 @@ const PurchaseForm = ({submitProp,btnTitle,id}) => {
     return (
         <form className='flex-wrapper flex-col col-10 col-sm-6 col-md-4 mx-auto' onSubmit={submitHandler}>
             <label className='form-label'>Symbol
-                <input className='form-control' type="text" value={symbol} onChange={e=>setSymbol(e.target.value)} />
+                <input className='form-control' type="text" value={symbol} onChange={e=>setSymbol(e.target.value.toUpperCase())} />
             </label>
             <label className='form-label'>Quantity
                 <input className='form-control' type="number" value={quantity} onChange={e=>setQuantity(e.target.value)} />
@@ -65,7 +65,7 @@ const PurchaseForm = ({submitProp,btnTitle,id}) => {
                 </select>
             </label>
             }
-            <label className='form-label'>Is Sold
+            <label className='form-label'>Is Sold &nbsp;
                 <input className='form-check-input' type="checkbox" value={isSold} onChange={e=>setIsSold(true)} />
             </label>
             {isSold ? 

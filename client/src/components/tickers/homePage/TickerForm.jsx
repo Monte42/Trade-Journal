@@ -9,7 +9,7 @@ const TickerForm = ({ticker, setTicker, submitProp}) => {
     return (
         <form onSubmit={submitHandler}>
             <div className="input-group input-group-lg">
-                <span onClick={submitHandler} className="input-group-text" id="inputGroup-sizing-lg">Send</span>
+                <span onClick={submitHandler} className="btn btn-secondary input-group-text" id="inputGroup-sizing-lg">Send</span>
                 <input type="text" className="form-control" aria-label="Sizing example input" 
                 aria-describedby="inputGroup-sizing-lg" value={ticker} 
                 onChange={e => setTicker(e.target.value.toUpperCase())}

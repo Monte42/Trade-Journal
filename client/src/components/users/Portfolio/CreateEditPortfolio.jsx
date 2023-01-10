@@ -14,7 +14,7 @@ const CreateEditPortfolio = ({submitProp, title}) => {
             {title}
             <form onSubmit={submitHandler}>
                 <label className='form-label'> Current Balance:
-                    <input className='form-control' type="number" value={accountBalance} onChange={e=>setAccountBalance(e.target.value)} />
+                    <input className='form-control' type="number" step='0.01' value={accountBalance} onChange={e=>setAccountBalance(e.target.value)} />
                 </label>
                 <p><button className='btn btn-success'>Submit</button></p>
             </form>
