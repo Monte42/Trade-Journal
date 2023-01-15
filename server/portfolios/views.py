@@ -11,8 +11,9 @@ def get_or_add_portfolio_list(request, format=None):
         serializer = PortfolioSerializer(portfolios, many=True)
         return Response(serializer.data)
     newData = request.data.copy()
+    errors = validate_form(newData)
+    if bool(errors): return Response(errors, status.HTTP_400_BAD_REQUEST)
     newData['account_number'] = Portfolio.genAccountNumber()
-    # print(newData)
     serializer = PortfolioSerializer(data=newData)
     if serializer.is_valid():
         serializer.save()
@@ -44,3 +45,6 @@ def get_portfolio_buy_user_id(request,id,format=None):
         return Response(status=status.HTTP_404_NOT_FOUND)
     serializer = PortfolioSerializer(portfolio)
     return Response(serializer.data)
+
+def validate_form(formData):
+    if formData['balance']<1.0: return {'balance':'You can not start a journal with a balance less than $1'}

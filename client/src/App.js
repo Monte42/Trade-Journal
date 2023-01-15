@@ -33,7 +33,7 @@ function App() {
 
   return (
     <JournalContext.Provider value={[user,setUser,time]}>
-      <div className="App">
+      <main className="App">
         <BrowserRouter>
           <Routes>
             <Route element={<UserAuth />} path={'/register'} />
@@ -49,7 +49,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-      </div>
+      </main>
     </JournalContext.Provider>
   );
 }

@@ -11,7 +11,7 @@ const TraderNav = ({message}) => {
         navigate('/register')
     }
     return (
-        <>
+        <header>
             <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{backgroundColor:'#eee'}}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to={"/"}>Trade Journal</Link>
@@ -56,7 +56,7 @@ const TraderNav = ({message}) => {
                 <h2>{message}</h2>
                 <h3>{time.toLocaleString()}</h3>
             </div>
-        </>
+        </header>
     )
 }
 

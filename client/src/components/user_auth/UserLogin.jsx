@@ -32,7 +32,7 @@ const UserLogin = () => {
 
     return (
         <form onSubmit={submitHandler}>
-            {errors.message && <p className='error'>{errors.message}</p>}
+            {errors.message && <p className='error' style={{margin:'0 auto'}}>{errors.message}</p>}
             <UserPwd 
                 username={username} setUsername={setUsername}
                 password={password} setPassword={setPassword}

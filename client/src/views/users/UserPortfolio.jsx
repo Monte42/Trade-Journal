@@ -22,6 +22,7 @@ const UserPortfolio = () => {
     const [pnl,setPnl] = useState([])
     const [diversity,setDiversity] = useState([])
     const [balanceTrack,setBalanceTrack] = useState([])
+    const [error,setError] = useState({})
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -51,7 +52,7 @@ const UserPortfolio = () => {
             balance: startBalance
         })
             .then(res=>{setPortfolio(res.data)})
-            .catch(err=>console.log(err))
+            .catch(err=>setError(err.response.data))
     }
     const updatePortfolio = newBalance => {
         axios.put(`http://localhost:8000/api/portfolios/${portfolio.id}`, {
@@ -63,7 +64,9 @@ const UserPortfolio = () => {
                 setPortfolio(res.data)
                 newBalance>portfolio.balance?
                 alert(`Successfully Deposited $${newBalance-portfolio.balance} \n New Balance: $${newBalance}`):
-                alert(`Successfully Withdrew $${portfolio.balance-newBalance} \n New Balance: $${newBalance}`)
+                    portfolio.balance-newBalance<0 ?
+                    alert(`Sorry, you do not have sufficient funds`):
+                    alert(`Successfully Withdrew $${portfolio.balance-newBalance} \n New Balance: $${newBalance}`)
             })
             .catch(err=>console.log(err))
     }
@@ -73,13 +76,14 @@ const UserPortfolio = () => {
             <TraderNav message={user.name} />
             {!portfolio.account_number ? 
                 <>
-                    <CreateEditPortfolio submitProp={createNewPortfolio} title={<h2>Start a New Journal</h2>} />
+                    <CreateEditPortfolio submitProp={createNewPortfolio} title={<h2>Start a New Journal</h2>} error={error} />
+                    <br/>
                     <DeleteBtn 
                         docModel={"users"}
                         docId={user.id}
                         event={deleteUser}
                         title={'Delete My Account'}
-                        leftMargin={'0'}
+                        leftMargin={'15vw'}
                     />
                     <Footer bottomOut={'bottom-out'} />
                 </> :

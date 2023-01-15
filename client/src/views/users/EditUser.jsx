@@ -44,7 +44,9 @@ const EditUser = () => {
             .then(res => setUser({ // Updating Session 
                 id: res.data.id,
                 name: `${res.data.first_name} ${res.data.last_name}`,
-                username: res.data.username
+                username: res.data.username,
+                email: res.data.email,
+                created_at: res.data.created_at
             }))
             .then(()=>navigate('/'))
             .catch(err=>setErrors(err.response.data))

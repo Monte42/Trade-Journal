@@ -22,8 +22,6 @@ def create_user(request, format=None):
     ).decode('utf-8')
     newUser['password'] = hashed
     serializer = UserSerializer(data=newUser)
-    print(serializer.is_valid())
-    print(serializer)
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
@@ -79,10 +77,10 @@ def get_edit_delete_user_by_id(request, id, format=None):
     return Response(serializer.data)
 
 
-def validateForm(userData,new=False):
+def validateForm(userData,newUser=False):
     err_dict = {}
     for k in userData:
-        if k == 'password' and new:
+        if k == 'password' and newUser:
             if not re.match(pwd_regex, userData[k]):
                 err_dict[k] = "Password must have Numbers,Letters,Capitals, and a speacil character"
             if len(userData[k]) < 8:
@@ -91,9 +89,9 @@ def validateForm(userData,new=False):
             if k == 'email':
                 if not re.match(email_regex, userData[k]):
                     err_dict[k] = "Please enter a valid email"
-                if User.objects.filter(email=userData[k]).exists() and new:
+                if User.objects.filter(email=userData[k]).exists() and newUser:
                     err_dict[k] = f"Sorry, but this {k} is in use"
-            if k == 'username':
+            if k == 'username' and newUser:
                 if User.objects.filter(username=userData[k]).exists():
                     err_dict[k] = f"Sorry, but this {k} is in use"
             if len(userData[k]) < 2:

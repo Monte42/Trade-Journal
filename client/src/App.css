@@ -57,6 +57,7 @@ footer * {margin: 0;}
 
 .error{
   padding: 2px 5px;
+  width: fit-content;
   background-color: rgba(199, 199, 199, 0.5);
   box-shadow: 4px 4px 5px #444;
   color: darkred;
