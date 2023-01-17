@@ -31,7 +31,7 @@ const HomePortfolio = () => {
             <div className="col-10 col-sm-6">
                 <p><strong>Account#</strong> {portfolio.account_number}</p>
                 <p><strong>Buying Power:</strong> ${portfolio.balance}</p>
-                <p><strong>Create Date:</strong> {new Date(portfolio.created_at).toDateString()}</p>
+                <p><strong>Create Date:</strong> {portfolio.created_at && new Date(portfolio.created_at).toDateString()}</p>
             </div>
         </div>
     )

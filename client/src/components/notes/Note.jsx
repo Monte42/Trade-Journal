@@ -1,5 +1,4 @@
 import DeleteBtn from "../general/DeleteBtn"
-import axios from "axios"
 
 const Note = ({index,note,getNotes}) => {
 

@@ -12,9 +12,10 @@ import TraderNav from '../../components/general/TraderNav'
 const EditPurchase = () => {
     const {portID,purchID} = useParams()
     const [user] = useContext(JournalContext)
-    const navigate = useNavigate()
     const [equity,setEquity] = useState({})
     const [portfolio,setPortfolio] = useState({})
+    const [errors,setErrors] = useState({})
+    const navigate = useNavigate()
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/equities/purchase/${purchID}`)
@@ -42,11 +43,13 @@ const EditPurchase = () => {
             axios.put(`http://localhost:8000/api/portfolios/${portID}`,{
                 user: user.id,
                 account_number: portfolio.account_number,
-                balance: parseInt(portfolio.balance)+(parseInt(sellTotal)-parseInt(buyTotal))
+                balance: parseFloat(portfolio.balance)+parseFloat(sellTotal)
             })
+            
         }
         axios.put(`http://localhost:8000/api/purchases/${purchID}`, updatedPurchase)
             .then(() => navigate(`/${user.username}/portfolio`))
+            .catch(err=>setErrors(err.response.data))
     }
 
     return (
@@ -56,6 +59,7 @@ const EditPurchase = () => {
             <PurchaseForm 
                 submitProp={updatePurchase}
                 btnTitle={'Update'}
+                errors={errors}
                 id={purchID}
             />
             <Footer bottomOut={'bottom-out'} />

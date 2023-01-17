@@ -24,6 +24,8 @@ def get_edit_delete_equity_by_id(request, id,  format=None):
     except Equity.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'PUT':
+        errors = validate_form(request.data)
+        if bool(errors): return Response(errors, status.HTTP_400_BAD_REQUEST)
         serializer = EquitySerializer(equity, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -45,3 +47,6 @@ def get_equity_by_portfolio_id(request,id,format=None):
     equities = Equity.objects.all().filter(portfolio=id)
     serializer = EquitySerializer(equities, many=True)
     return Response(serializer.data)
+
+def validate_form(formData):
+    if float(formData['last_updated_price'])<1: return {'last_updated_price':"Sell Price can't be less than $1"}

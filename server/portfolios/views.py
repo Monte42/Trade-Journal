@@ -26,6 +26,8 @@ def get_edit_delete_portfolio_by_id(request,id,format=None):
     except Portfolio.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'PUT':
+        errors = validate_form(request.data)
+        if bool(errors): return Response(errors, status.HTTP_400_BAD_REQUEST)
         serializer = PortfolioSerializer(portfolio, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -47,4 +49,4 @@ def get_portfolio_buy_user_id(request,id,format=None):
     return Response(serializer.data)
 
 def validate_form(formData):
-    if formData['balance']<1.0: return {'balance':'You can not start a journal with a balance less than $1'}
+    if float(formData['balance'])<1: return {'balance':'Your balance can not be less than $1'}

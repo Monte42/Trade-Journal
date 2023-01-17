@@ -13,6 +13,7 @@ const DetailsPurchase = () => {
     const [purchase, setPurchase] = useState({})
     const [notes,setNotes] = useState([])
     const [content,setContent] = useState('')
+    const [error,setError] = useState({})
 
     useEffect(()=> {
         axios.get(`http://localhost:8000/api/purchases/${id}`)
@@ -33,8 +34,9 @@ const DetailsPurchase = () => {
             .then(res => {
                 setNotes([...notes,res.data])
                 setContent('')
+                setError({})
             })
-            .catch(err=>console.log(err))
+            .catch(err=>setError(err.response.data))
     }
 
     const getNotes = () => {
@@ -81,7 +83,9 @@ const DetailsPurchase = () => {
                     <form className='col-10 mx-auto' onSubmit={createNote}>
                         <label className='form-label'>Have a new thought about this purchase?
                             <input className='form-control' type="text" value={content} onChange={e=>setContent(e.target.value)} />
-                        </label><br/>
+                        </label>
+                        {error.content && <p className='error'>{error.content}</p>}
+                        <br/>
                         <button className='btn btn-secondary'>Add Note</button>
                     </form>
                 </div>

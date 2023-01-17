@@ -10,6 +10,8 @@ def add_or_get_notes(request, format=None):
     if request.method == 'GET':
         serializer = NoteSerializer(notes, many=True)
         return Response(serializer.data)
+    errors = validate_form(request.data)
+    if bool(errors): return Response(errors, status.HTTP_400_BAD_REQUEST)
     serializer = NoteSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
@@ -38,3 +40,6 @@ def get_note_by_purcahse_id(request,id,format=None):
     notes = Note.objects.filter(purchase=id)
     serializer = NoteSerializer(notes, many=True)
     return Response(serializer.data)
+
+def validate_form(formData):
+    if len(formData['content'])<5: return {'content': 'Notes should be at least 5 character'}

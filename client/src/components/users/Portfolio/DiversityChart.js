@@ -17,7 +17,7 @@ class Chart extends React.Component {
                 width={window.innerWidth*.6}
                 colorScale={['#001219','#005f73','#0a9396','#94d2bd','#e9d8a6','#ee9b00','#219ebc','#ca6702','#bb3e03','#ae2012','#9b2226']}
                 innerRadius={20}
-                style={{ labels: {fontSize: 18, fill:'#fff'}, }}
+                style={{ labels: {fontSize: 11.4, fill:'#fff'}, }}
                 data={diversityData}
             />
         </div>

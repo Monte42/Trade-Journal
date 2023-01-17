@@ -4,6 +4,7 @@ const CreateEditPortfolio = ({submitProp, title, error}) => {
     const [accountBalance,setAccountBalance] = useState(0)
 
     const submitHandler = e => {
+        console.log(error);
         e.preventDefault()
         submitProp(accountBalance)
         setAccountBalance(0)

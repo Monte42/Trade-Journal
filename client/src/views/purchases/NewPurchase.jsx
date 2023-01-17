@@ -10,6 +10,7 @@ const NewPurchase = () => {
     const {id} = useParams()
     const [user] = useContext(JournalContext)
     const [portfolio,setPortfolio] = useState({})
+    const [errors,setErrors] = useState({})
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -36,10 +37,13 @@ const NewPurchase = () => {
     const setNewBalance = (price) => {
         let isValid = false
         let p = portfolio
-        p.balance = p.balance-price
+        p.balance = (p.balance-price).toFixed(2)
         if (p.balance>0){
-            axios.put(`http://localhost:8000/api/portfolios/${id}`, p)
-                .then(()=> navigate(`/${user.username}/portfolio`))
+            axios.put(`http://localhost:8000/api/portfolios/${id}`, {
+                user: p.user,
+                account_number: p.account_number,
+                balance: p.balance
+            })
                 .catch(err=>console.log(err))
             isValid = true
         }
@@ -64,9 +68,12 @@ const NewPurchase = () => {
         })
             .then(res=>{
                 createNewEquity(res.data.id,symbol,sector,buy,quantity)
+                navigate(`/${user.username}/portfolio`)
             })
-            .then(()=> navigate(`/${user.username}/portfolio`))
-            .catch(err=>console.log(err))
+            .catch(err=> {
+                console.log(err);
+                setErrors(err.response.data)
+            })
         
     }
 
@@ -76,7 +83,7 @@ const NewPurchase = () => {
             <h2 className='header-style text-center'>
                 Add a new Transaction
             </h2>
-            <PurchaseForm submitProp={createNewPurchase} btnTitle={'Create'}/>
+            <PurchaseForm submitProp={createNewPurchase} btnTitle={'Create'} errors={errors}/>
             <Footer bottomOut={'bottom-out'}/>
         </div>
     )

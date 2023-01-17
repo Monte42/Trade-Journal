@@ -10,6 +10,7 @@ const EditEquity = () => {
     const { id } = useParams()
     const navigate = useNavigate()
     const [equity,setEquity] = useState({})
+    const [error,setError] = useState({})
     const [newValue,setNewValue] = useState(0)
 
     useEffect(()=>{
@@ -34,7 +35,7 @@ const EditEquity = () => {
             price_difference: (newValue-equity.buy_price).toFixed(2)
         })
             .then(()=>navigate(`/${user.username}/portfolio`))
-            .catch(err=>console.log(err))
+            .catch(err=>setError(err.response.data))
     }
 
     return (
@@ -53,6 +54,7 @@ const EditEquity = () => {
                 <label className='form-lable'>$
                     <input className='form-control-lg' type="number" value={newValue} onChange={e=>setNewValue(e.target.value)} />
                 </label>
+                {error.last_updated_price && <p className='error'>{error.last_updated_price}</p>}
                 <button className='btn btn-secondary btn-lg'>Update</button>
             </form>
             <Footer bottomOut={'bottom-out'} />

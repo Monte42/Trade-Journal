@@ -2,7 +2,6 @@ import { useState,useEffect,useContext } from 'react'
 import { JournalContext } from '../../App'
 import { useNavigate } from "react-router-dom"
 import { get_equity_value,getDiversity,get_pnl,buildUserHistoryChartData } from '../../utils/getChartData'
-import axios from 'axios'
 import TraderNav from '../../components/general/TraderNav'
 import CreateEditPortfolio from '../../components/users/Portfolio/CreateEditPortfolio'
 import Purchases from '../../components/users/Portfolio/Purchases'
@@ -12,6 +11,7 @@ import PnlChart from '../../components/users/Portfolio/PnlChart'
 import BalanceTrackChart from '../../components/users/Portfolio/BalanceTrackChart'
 import DeleteBtn from '../../components/general/DeleteBtn'
 import Footer from '../../components/general/Footer'
+import axios from 'axios'
 
 const UserPortfolio = () => {
     const [user,setUser] = useContext(JournalContext)
@@ -67,8 +67,9 @@ const UserPortfolio = () => {
                     portfolio.balance-newBalance<0 ?
                     alert(`Sorry, you do not have sufficient funds`):
                     alert(`Successfully Withdrew $${portfolio.balance-newBalance} \n New Balance: $${newBalance}`)
+                setError({})
             })
-            .catch(err=>console.log(err))
+            .catch(err=>setError(err.response.data))
     }
 
     return (
@@ -154,7 +155,7 @@ const UserPortfolio = () => {
                         borderRadius:'10px',
 
                     }}>
-                        <CreateEditPortfolio submitProp={updatePortfolio} title={<h4>Withdraw/Deposit</h4>} />
+                        <CreateEditPortfolio submitProp={updatePortfolio} title={<h4>Withdraw/Deposit</h4>} error={error} />
                         <DeleteBtn 
                             docModel={"portfolios"}
                             docId={portfolio.id}
