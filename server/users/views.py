@@ -33,8 +33,8 @@ def login(request, format=None):
     except User.DoesNotExist:
         return Response({"message":"Invalid Username/Password"},status.HTTP_400_BAD_REQUEST)
     serializer = UserSerializer(user)
-    # if not bcrypt.checkpw(bytes(request.data["password"],'utf-8'),bytes(user.password, 'utf-8')):
-        # return Response({"message":"Invalid Username/Password"},status.HTTP_400_BAD_REQUEST)
+    if not bcrypt.checkpw(bytes(request.data["password"],'utf-8'),bytes(user.password, 'utf-8')):
+        return Response({"message":"Invalid Username/Password"},status.HTTP_400_BAD_REQUEST)
     request.session['user'] = serializer.data
     return Response(serializer.data)
 
@@ -94,7 +94,7 @@ def validateForm(userData,newUser=False):
             if k == 'username' and newUser:
                 if User.objects.filter(username=userData[k]).exists():
                     err_dict[k] = f"Sorry, but this {k} is in use"
-            if len(userData[k]) < 2:
+            if len(userData[k]) < 2 and k!='user_img':
                 err_dict[k] = f"{k.capitalize().replace('_',' ')} must be at least 2 characters"
     if 'confirmPassword' in userData.keys():
         err_dict.pop('confirmPassword', None)

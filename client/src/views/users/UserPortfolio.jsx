@@ -121,7 +121,7 @@ const UserPortfolio = () => {
                         </div>
                         <Equities portfolioID={portfolio.id} equities={equities} setEquities={setEquities} />
                     </div>
-                    <div className='row mx-2'>
+                    <div className='row mx-2 mt-5'>
                         <Purchases portfolioID={portfolio.id} purchases={purchases} setPurchases={setPurchases} />
                         <div className='col-10 col-md-7 p-3' style={{margin:'0 auto'}}>
                             {pnl[0].y===0&&pnl[1].y===0? 

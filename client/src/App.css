@@ -143,3 +143,36 @@ footer * {margin: 0;}
 .height-50{
   height: 50vh;
 }
+.msg-board{
+  height: 75vh;
+  width: 75vw;
+  background-color: #888;
+  border: 1px solid white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px #333;
+  margin: 0 auto;
+  overflow: auto;
+}
+.msg-form{
+  width: 75vw;
+  margin: 0 auto;
+  box-shadow: 5px 5px 15px #333;
+}
+
+.msg{
+  padding: 1vw 2vw;
+  color: #ddd;
+  margin: 10px 1vw;
+  width: fit-content;
+  min-width: 15vw;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px #333;
+}
+.out{
+  background-image: linear-gradient(to bottom right,#0acf3f,#0e9c34,#0acf3f);
+  margin-left: auto;
+  text-align: right;
+}
+.in{
+  background-image: linear-gradient(to bottom left, #0a7acf,#17629c,#0a7acf);
+}

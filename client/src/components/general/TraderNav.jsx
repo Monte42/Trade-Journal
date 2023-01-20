@@ -24,7 +24,7 @@ const TraderNav = ({message}) => {
                                 <Link className="nav-link" aria-current="page" to={"/details"}>Look Up A Company</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" aria-current="page" to={""} disabled>Chat Lobby(CommingSoon)</Link>
+                                <Link className="nav-link" aria-current="page" to={"/chat_lobby"}>Chat Lobby</Link>
                             </li>
                             
                         </ul>
@@ -46,7 +46,7 @@ const TraderNav = ({message}) => {
                                 </ul>
                             </li>
                             <Link to={`/${user.username}/portfolio`}>
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT04s_fztbv3ncwe0O_x5tbAmgLZCsPKorMzw&usqp=CAU" style={{width:"30px", height:"30px", borderRadius:"50%"}} />
+                                <img src="https://trade-journal-363.s3.amazonaws.com/garyD.jpg" style={{width:"35px", height:"35px", borderRadius:"50%"}} />
                             </Link>
                         </ul>
                     </div>
