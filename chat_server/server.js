@@ -2,10 +2,16 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const socket = require('socket.io')
+// const generateSecureURL = require('./s3')
 
 app.use(cors({
     origin: ['http://localhost:3000'],
 }))
+
+// app.get('/s3Url', async (reg,res) => {
+//     const url = await generateSecureURL()
+//     res.send({url})
+// })
 
 const server = app.listen(5000, () => console.log('Chat Server is up...'))
 

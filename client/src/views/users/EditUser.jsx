@@ -48,36 +48,35 @@ const EditUser = () => {
 
     const changeFileHandler = e => setSelectedFile(e.target.files[0])
 
-    // const handleUpload = async (file) => {
-    //     uploadFile(file, config)
-    //         .then(data => console.log(data))
-    //         .catch(err => console.error(err))
-    // }
+    const handleUpload = async (file) => {
+        axios.get('http://localhost:5000/s3Url')
+            .then(res => console.log(res))
+    }
 
     const submitHandler = e =>{
         e.preventDefault()
-        // handleUpload(selectedFile)
-        console.log(selectedFile);
-        if(user.id != id) navigate('/')
-        axios.put(`http://localhost:8000/api/users/${id}`, {
-            first_name: firstName,
-            last_name: lastName,
-            email,
-            username,
-            password
-        })
-            .then(res => setUser({ // Updating Session 
-                id: res.data.id,
-                name: `${res.data.first_name} ${res.data.last_name}`,
-                username: res.data.username,
-                email: res.data.email,
-                created_at: res.data.created_at
-            }))
-            .then(()=>navigate('/'))
-            .catch(err=>{
-                console.log(err);
-                setErrors(err.response.data)
-            })
+        handleUpload(selectedFile)
+        // console.log(selectedFile);
+        // if(user.id != id) navigate('/')
+        // axios.put(`http://localhost:8000/api/users/${id}`, {
+        //     first_name: firstName,
+        //     last_name: lastName,
+        //     email,
+        //     username,
+        //     password
+        // })
+        //     .then(res => setUser({ // Updating Session 
+        //         id: res.data.id,
+        //         name: `${res.data.first_name} ${res.data.last_name}`,
+        //         username: res.data.username,
+        //         email: res.data.email,
+        //         created_at: res.data.created_at
+        //     }))
+        //     .then(()=>navigate('/'))
+        //     .catch(err=>{
+        //         console.log(err);
+        //         setErrors(err.response.data)
+        //     })
     }
 
     return (
