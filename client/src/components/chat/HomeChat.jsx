@@ -5,12 +5,11 @@ const HomeChat = () => {
     }
     return (
         <div style={{
-            backgroundColor:"#333",
+            marginBottom:'20px',
+            width:'80%',
+            backgroundColor:"#444",
             borderRadius:'10px',
-            boxShadow:'2px 3px 5px gray',
-            width:"80%",
-            padding:'.5vw',
-            marginTop:'40px'
+            boxShadow:'2px 3px 5px #222',
         }}>
             <h3 className='header-style'>Popular Chat Rooms</h3>
             <ul className='list-group mx-4 mb-2'>

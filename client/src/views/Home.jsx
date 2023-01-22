@@ -14,12 +14,12 @@ const Home = () => {
     return (
         <div>
             <TraderNav message={`Welcome, ${user.name}`} />
-            <div className='row d-flex justify-content-center py-3 '>
-                <div className='col-md-10 col-lg-6 flex-wrapper flex-col flex-align-center' style={{height:"75vh"}}>
+            <div className='row py-3 '>
+                <div className='col-md-10 col-lg-6 flex-wrapper flex-col flex-align-center mx-auto flex-gap-20'>
                     <TickerStats />
                     <HomeChat />
                 </div>
-                <div className='col-md-10 col-lg-6 flex-wrapper flex-col flex-align-center' style={{height:"75vh"}}>
+                <div className='col-md-10 col-lg-6 flex-wrapper flex-col flex-align-center mx-auto flex-gap-15'>
                     <HomePortfolio />
                     <TickerNews />
                 </div>
