@@ -109,7 +109,7 @@ const EditUser = () => {
                     <button className='btn btn-secondary'>Update</button>
                 </form>
             </div>
-            <Footer bottomOut={'bottom-out'} />
+            <Footer />
         </div>
     )
 }

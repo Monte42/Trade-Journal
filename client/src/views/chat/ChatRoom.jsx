@@ -1,10 +1,8 @@
 import { useState,useEffect,useContext } from "react"
-import { JournalContext } from "../../App"
-import TraderNav from "../../components/general/TraderNav"
-import io from 'socket.io-client'
-import MessageBoard from "../../components/chat/MessageBoard"
 import { useParams } from "react-router-dom"
-import Footer from "../../components/general/Footer"
+import { JournalContext } from "../../App"
+import MessageBoard from "../../components/chat/MessageBoard"
+import io from 'socket.io-client'
 
 const ChatRoom = () => {
     const [socket] = useState(() => io(':5000'))
@@ -23,7 +21,7 @@ const ChatRoom = () => {
         socket.on("msg_from_server", data => {
             setMsgs(prevMsgs => [...prevMsgs, data])
         })
-        socket.emit('join-room', room)
+        socket.emit('join-room', room, user)
         return () => socket.disconnect(true)
     },[])
 
@@ -41,12 +39,10 @@ const ChatRoom = () => {
 
     return (
         <div>
-            <TraderNav message={`Chat Lobby, ${user.name}`} />
-
             <h3 className="header-style ms-5 mt-3">{room.replace('_',' ')} Discussions</h3>
             <MessageBoard msgs={msgs} user={user} />
 
-            <form className="msg-form mb-5" onSubmit={submitHandler}>
+            <form className="msg-form mb-2" onSubmit={submitHandler}>
                 <div className="input-group input-group-lg">
                     <span onClick={submitHandler} className="input-group-text" id="inputGroup-sizing-lg">Send</span>
                     <input type="text" className="form-control" aria-label="Sizing example input" 
@@ -56,7 +52,6 @@ const ChatRoom = () => {
                     <br />
                 </div>
             </form>
-            <Footer />
         </div>
     )
 }

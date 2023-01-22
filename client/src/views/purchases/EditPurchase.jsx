@@ -62,7 +62,7 @@ const EditPurchase = () => {
                 errors={errors}
                 id={purchID}
             />
-            <Footer bottomOut={'bottom-out'} />
+            <Footer />
         </div>
     )
 }

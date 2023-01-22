@@ -1,25 +1,29 @@
-import React from 'react'
-
 const HomeChat = () => {
+    const openChatWindow = (roomURL) => {
+        window.open(`${roomURL}`,'ChatRoom','resizable,height=600,width=420')
+        return false
+    }
     return (
         <div style={{
             backgroundColor:"#333",
             borderRadius:'10px',
             boxShadow:'2px 3px 5px gray',
             width:"80%",
-            padding:'20px 0px 0px',
+            padding:'.5vw',
             marginTop:'40px'
         }}>
-            <h4 style={{
-                color:'#fff',
-                textAlign:'center'
-            }}>Chat Lobby Comming Soon!</h4>
-            <h4 style={{
-                transform: 'translate(5px,-5px) scale(1, -1) skewX(-20deg)',
-                color: 'rgba(111,111,111,0.5)',
-                textAlign:'center'
-            }}>Chat Lobby Comming Soon!</h4>
-
+            <h3 className='header-style'>Popular Chat Rooms</h3>
+            <ul className='list-group mx-4 mb-2'>
+                <li className='flex-wrapper flex-justify-between list-group-item list-group-item-action'>Day Trading Discussions 
+                    <a href='#' onClick={e => openChatWindow('chat/Day_Trading')}>Open Chat</a>
+                </li>
+                <li className='flex-wrapper flex-justify-between list-group-item list-group-item-action'>Swing Trading Discussions 
+                    <a href='#' onClick={e => openChatWindow('chat/Swing_Trading')}>Open Chat</a>
+                </li>
+                <li className='flex-wrapper flex-justify-between list-group-item list-group-item-action'>Long Term Discussions 
+                    <a href='#' onClick={e => openChatWindow('chat/Long_Term')}>Open Chat</a>
+                </li>
+            </ul>
         </div>
     )
 }

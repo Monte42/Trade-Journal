@@ -84,7 +84,7 @@ const NewPurchase = () => {
                 Add a new Transaction
             </h2>
             <PurchaseForm submitProp={createNewPurchase} btnTitle={'Create'} errors={errors}/>
-            <Footer bottomOut={'bottom-out'}/>
+            <Footer />
         </div>
     )
 }

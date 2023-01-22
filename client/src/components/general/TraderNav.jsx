@@ -33,7 +33,7 @@ const TraderNav = ({message}) => {
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     My Account
                                 </a>
-                                <ul className="dropdown-menu">
+                                <ul className="dropdown-menu" style={{width:'fit-content', padding:'0 0 0 2vw'}}>
                                     <li className="nav-item" >
                                         <Link className="nav-link" aria-current="page" to={`/user/${user.id}/edit`}>Edit</Link>
                                     </li>

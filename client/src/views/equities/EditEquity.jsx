@@ -57,7 +57,7 @@ const EditEquity = () => {
                 {error.last_updated_price && <p className='error'>{error.last_updated_price}</p>}
                 <button className='btn btn-secondary btn-lg'>Update</button>
             </form>
-            <Footer bottomOut={'bottom-out'} />
+            <Footer />
         </div>
     )
 }

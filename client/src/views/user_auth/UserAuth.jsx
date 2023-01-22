@@ -5,7 +5,7 @@ import UserLogin from "../../components/user_auth/UserLogin"
 const UserAuth = () => {
     return (
         <div className=' text-center'>
-            <img style={{width:'100vw'}} src="static/banner.png" alt="" />
+            <img style={{width:'100vw'}} src="static/images/banner.png" alt="" />
             <div className='row mt-4'>
                 <div className='col-sm-10 col-md-8 col-lg-6 mx-auto'>
                     <div className="row g-0">

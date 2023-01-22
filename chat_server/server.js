@@ -25,5 +25,8 @@ io.on('connection', socket => {
             socket.broadcast.emit("msg_from_server", data)
             : socket.to(room).emit("msg_from_server", data)
     });
-    socket.on('join-room', room => socket.join(room))
+    socket.on('join-room', (room,user) => {
+        socket.join(room)
+        socket.to(room).emit("msg_from_server", {from:'',message:`${user.username} Just Joined`})
+    })
 })
