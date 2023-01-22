@@ -21,9 +21,10 @@ const UserLogin = () => {
                 setUser({
                     id: res.data.id,
                     name: `${res.data.first_name} ${res.data.last_name}`,
+                    username: res.data.username,
                     email: res.data.email,
-                    created_at: res.data.created_at,
-                    username: res.data.username
+                    user_image_url: res.data.user_image_url,
+                    created_at: res.data.created_at
                 })
             })
             .then(() => navigate('/'))

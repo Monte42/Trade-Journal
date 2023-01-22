@@ -8,6 +8,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=100, blank=False,null=False)
     username = models.CharField(max_length=100, blank=False,null=False, unique=True)
     email = models.EmailField(max_length=200, blank=False,null=False, unique=True)
+    user_image_url = models.CharField(max_length=500, blank=True, null=True)
     password = models.CharField(max_length=250, blank=False,null=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

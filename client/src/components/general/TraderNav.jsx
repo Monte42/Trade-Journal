@@ -46,7 +46,10 @@ const TraderNav = ({message}) => {
                                 </ul>
                             </li>
                             <Link to={`/${user.username}/portfolio`}>
-                                <img src="https://trade-journal-363.s3.amazonaws.com/garyD.jpg" style={{width:"35px", height:"35px", borderRadius:"50%"}} />
+                                {user.user_image_url ?
+                                    <img className='nav-img' src={user.user_image_url} alt="Uploaded user image" /> :
+                                    <img className='nav-img' src="static/images/default_user.jpg" alt="Default user image" />
+                                }
                             </Link>
                         </ul>
                     </div>

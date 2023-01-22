@@ -4,7 +4,7 @@ from .models import User
 # Register your models here.
 
 class UserAdmin(admin.ModelAdmin):
-    fields = ('first_name','last_name','email','username','password')
+    fields = ('first_name','last_name','email','username','user_image_url','password')
     list_display = ['first_name','last_name','email','username','password']
     search_fields = ['first_name','last_name','email','username']
     ordering = [

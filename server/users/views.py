@@ -94,7 +94,7 @@ def validateForm(userData,newUser=False):
             if k == 'username' and newUser:
                 if User.objects.filter(username=userData[k]).exists():
                     err_dict[k] = f"Sorry, but this {k} is in use"
-            if len(userData[k]) < 2 and k!='user_img':
+            if len(userData[k]) < 2 and k!='user_image_url':
                 err_dict[k] = f"{k.capitalize().replace('_',' ')} must be at least 2 characters"
     if 'confirmPassword' in userData.keys():
         err_dict.pop('confirmPassword', None)
