@@ -20,6 +20,7 @@ const UserAuth = () => {
                     </div>
                 </div>
             </div>
+            <br/><br/><br/>
             <Footer />
         </div>
     )

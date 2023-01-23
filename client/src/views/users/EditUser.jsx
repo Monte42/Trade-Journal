@@ -21,8 +21,8 @@ const EditUser = () => {
     const [errors,setErrors] = useState({})
 
     
-    useEffect(() => {  // Getting user from DB so I dont have to store pwd
-        if(user.id != id) navigate('/')  // in the Local Storage
+    useEffect(() => {
+        if(user.id != id) navigate('/') 
         axios.get(`http://localhost:8000/api/users/${id}`)
         .then(res => {
             setFirstName(res.data.first_name)
@@ -64,7 +64,7 @@ const EditUser = () => {
             user_image_url: userImg,
             password
         })
-            .then(res => setUser({ // Updating Session 
+            .then(res => setUser({
                 id: res.data.id,
                 name: `${res.data.first_name} ${res.data.last_name}`,
                 username: res.data.username,
@@ -87,7 +87,7 @@ const EditUser = () => {
             </h2>
             <div className='row text-center'>
                 {updating &&
-                    <div className="spinner-border" role="status">
+                    <div className="spinner-border update-loader" role="status">
                         <span className="visually-hidden">Loading...</span>
                         <span>Updating...</span>
                     </div>

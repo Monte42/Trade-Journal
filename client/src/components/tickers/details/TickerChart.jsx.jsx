@@ -1,8 +1,8 @@
 import { useState,useEffect } from "react"
-import axios from "axios";
-import Chart from "./Chart";
 import { parseTickerChatData } from "../../../utils/getChartData";
 import env from 'react-dotenv'
+import Chart from "./Chart";
+import axios from "axios";
 
 const TickerChart = ({chartURL}) => {
     const [chartData,setChartData] = useState([])

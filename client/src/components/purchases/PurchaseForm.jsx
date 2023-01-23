@@ -16,7 +16,6 @@ const PurchaseForm = ({submitProp,btnTitle,id,errors}) => {
         if (id){
             axios.get(`http://localhost:8000/api/purchases/${id}`)
                 .then(res =>{
-                    console.log(res.data.symbol);
                     setSymbol(res.data.symbol)
                     setQuantity(res.data.quantity)
                     setBuy(res.data.share_buy_price)
@@ -87,7 +86,10 @@ const PurchaseForm = ({submitProp,btnTitle,id,errors}) => {
                 }
                 <button className='btn btn-secondary'>{btnTitle}</button>
             </form>
-            : <p>Loading</p>
+            :
+            <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
         }
         </>
     )

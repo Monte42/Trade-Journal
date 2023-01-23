@@ -1,8 +1,8 @@
 import { useState,useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { JournalContext } from '../../App'
-import axios from 'axios'
 import UserPwd from './form_blocks/UserPwd'
+import axios from 'axios'
 
 const UserLogin = () => {
     const [,setUser] = useContext(JournalContext)
@@ -17,7 +17,7 @@ const UserLogin = () => {
             username,
             password
         })
-            .then(res => {  // Setting Session
+            .then(res => {
                 setUser({
                     id: res.data.id,
                     name: `${res.data.first_name} ${res.data.last_name}`,

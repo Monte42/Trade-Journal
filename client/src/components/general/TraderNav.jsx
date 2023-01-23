@@ -1,6 +1,6 @@
-import { useContext } from 'react'
 import { useNavigate,Link } from 'react-router-dom'
 import { JournalContext } from '../../App'
+import { useContext } from 'react'
 
 const TraderNav = ({message}) => {
     const [user,setUser,time] = useContext(JournalContext)
@@ -48,7 +48,7 @@ const TraderNav = ({message}) => {
                             <Link to={`/${user.username}/portfolio`}>
                                 {user.user_image_url ?
                                     <img className='nav-img' src={user.user_image_url} alt="Uploaded user image" /> :
-                                    <img className='nav-img' src="static/images/default_user.jpg" alt="Default user image" />
+                                    <img className='nav-img' src="https://trade-journal-363.s3.amazonaws.com/default_user.png" alt="Default user image" />
                                 }
                             </Link>
                         </ul>

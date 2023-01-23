@@ -1,7 +1,6 @@
-import { useEffect } from 'react'
-import axios from 'axios'
+import { useState,useEffect } from 'react'
 import env from 'react-dotenv'
-import { useState } from 'react'
+import axios from 'axios'
 
 const BalanceSheet = ({ticker}) => {
     const [sheetData,setSheetData] = useState({})

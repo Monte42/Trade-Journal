@@ -1,13 +1,10 @@
-import React from 'react'
-import { useContext } from 'react'
+import { useState,useEffect,useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { JournalContext } from '../../App'
-import axios from 'axios'
 import PurchaseForm from '../../components/purchases/PurchaseForm'
-import { useEffect } from 'react'
-import { useState } from 'react'
 import Footer from '../../components/general/Footer'
 import TraderNav from '../../components/general/TraderNav'
+import axios from 'axios'
 
 const EditPurchase = () => {
     const {portID,purchID} = useParams()
@@ -37,7 +34,7 @@ const EditPurchase = () => {
             share_sell_price:sell,
             total_sell_price:sellTotal
         }
-        isSold ? updatedPurchase['profit_loss']=sellTotal-buyTotal : updatedPurchase['profit_loss']=0
+        isSold ? updatedPurchase['profit_loss']=(sellTotal-buyTotal).toFixed(2) : updatedPurchase['profit_loss']=0
         if (isSold) {
             axios.delete(`http://localhost:8000/api/equities/${equity.id}`)
             axios.put(`http://localhost:8000/api/portfolios/${portID}`,{
@@ -49,7 +46,10 @@ const EditPurchase = () => {
         }
         axios.put(`http://localhost:8000/api/purchases/${purchID}`, updatedPurchase)
             .then(() => navigate(`/${user.username}/portfolio`))
-            .catch(err=>setErrors(err.response.data))
+            .catch(err=>{
+                console.log(err.response);
+                setErrors(err.response.data)
+            })
     }
 
     return (

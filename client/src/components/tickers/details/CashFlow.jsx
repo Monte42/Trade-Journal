@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react'
-import axios from 'axios'
 import env from 'react-dotenv'
+import axios from 'axios'
 
 const CashFlow = ({ticker}) => {
     const [cashFlowData,setCashFlowData] = useState({})

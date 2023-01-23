@@ -184,7 +184,7 @@ footer * {margin: 0;}
 .in{
   background-image: linear-gradient(to bottom left, #0a7acf,#17629c,#0a7acf);
 }
-.spinner-border{
+.update-loader{
   position: absolute;
   top: 48%;
   left: 45%;

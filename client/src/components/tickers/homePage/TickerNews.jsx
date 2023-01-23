@@ -1,7 +1,7 @@
-import axios from 'axios'
 import { useState,useEffect } from 'react'
 import TickerForm from './TickerForm'
 import env from 'react-dotenv'
+import axios from 'axios'
 
 const TickerNews = () => {
     const [ticker,setTicker] = useState('')

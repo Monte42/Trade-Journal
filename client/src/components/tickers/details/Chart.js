@@ -15,14 +15,10 @@ class Chart extends React.Component {
         this.state = {};
     }
 
-    // Triggered by onZoomDomainChange and
-    // alters VictoryBrushContainer brushDomain prop
     handleZoom(domain) {
         this.setState({ selectedDomain: domain });
     }
 
-    // Triggered by onBrushDomainChange and
-    // alters VictoryZoomContainer zoomDomain prop
     handleBrush(domain) {
         this.setState({ zoomDomain: domain });
     }

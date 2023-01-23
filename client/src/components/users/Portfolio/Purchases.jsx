@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 import PorL from '../../purchases/PorL'
+import axios from 'axios'
 
 const Purchases = ({portfolioID,purchases,setPurchases}) => {
 

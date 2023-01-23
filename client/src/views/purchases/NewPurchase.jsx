@@ -1,10 +1,10 @@
 import { useState,useEffect,useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { JournalContext } from '../../App'
-import axios from 'axios'
 import TraderNav from '../../components/general/TraderNav'
 import PurchaseForm from '../../components/purchases/PurchaseForm'
 import Footer from '../../components/general/Footer'
+import axios from 'axios'
 
 const NewPurchase = () => {
     const {id} = useParams()
@@ -15,9 +15,7 @@ const NewPurchase = () => {
 
     useEffect(()=>{
         axios.get(`http://localhost:8000/api/portfolios/${id}`)
-            .then(res=> {
-                setPortfolio(res.data)
-            })
+            .then(res=> setPortfolio(res.data))
             .catch(err => console.log(err))
     },[])
 
@@ -70,10 +68,7 @@ const NewPurchase = () => {
                 createNewEquity(res.data.id,symbol,sector,buy,quantity)
                 navigate(`/${user.username}/portfolio`)
             })
-            .catch(err=> {
-                console.log(err);
-                setErrors(err.response.data)
-            })
+            .catch(err=> setErrors(err.response.data))
         
     }
 
